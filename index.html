@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <meta
+        name="description"
+        content="Juego de fichas mediante Drag and Drop"
+    >
+    <title>Juego de fichas</title>
+    <link rel="stylesheet" href="style.css">
+    <script
+        type="module"
+        src="script.js"
+    ></script>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="cabecera__contenido">
+            <div>
+                <h1 class="cabecera__titulo">
+                    Tablero
+                </h1>
+                <p class="cabecera__descripcion">
+                    Ordena las fichas y completa todas las filas
+                </p>
+            </div>
+            <div class="ayuda">
+                <button
+                    class="ayuda__boton"
+                    id="boton-ayuda"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="panel-ayuda"
+                    title="Cómo jugar"
+                >
+                    ?
+                </button>
+                <aside
+                    class="ayuda__panel"
+                    id="panel-ayuda"
+                    hidden
+                >
+                    <h2 class="ayuda__titulo">
+                        ¿Cómo se juega?
+                    </h2>
+                    <p>
+                        Arrastra una ficha y suéltala sobre
+                        otra ficha para intercambiar sus
+                        posiciones.
+                    </p>
+                    <p>
+                        El objetivo es conseguir que todas
+                        las fichas de cada fila sean del
+                        mismo tipo.
+                    </p>
+                    <p>
+                        Puedes modificar la dimensión del
+                        tablero, el tamaño de las fichas y
+                        su aspecto. Cada cambio comienza
+                        una nueva partida.
+                    </p>
+                </aside>
+            </div>
+        </div>
+    </header>
+    <main class="principal">
+        <aside
+            class="controles"
+            aria-labelledby="controles-titulo"
+        >
+            <h2
+                class="controles__titulo"
+                id="controles-titulo"
+            >
+                Configuración
+            </h2>
+            <div class="controles__grupo">
+                <label
+                    class="controles__etiqueta"
+                    for="dimension"
+                >
+                    Dimensión del tablero
+                </label>
+                <input
+                    class="controles__control"
+                    id="dimension"
+                    type="number"
+                    min="3"
+                    value="4"
+                >
+                <p class="controles__ayuda">
+                    Mínimo: 3 × 3
+                </p>
+            </div>
+            <div class="controles__grupo">
+                <label
+                    class="controles__etiqueta"
+                    for="tamano"
+                >
+                    Tamaño de las fichas
+                </label>
+                <select
+                    class="controles__control"
+                    id="tamano"
+                >
+                    <option value="pequena">
+                        Pequeña
+                    </option>
+                    <option
+                        value="mediana"
+                        selected
+                    >
+                        Mediana
+                    </option>
+                    <option value="grande">
+                        Grande
+                    </option>
+                </select>
+            </div>
+            <div class="controles__grupo">
+                <label
+                    class="controles__etiqueta"
+                    for="tema"
+                >
+                    Aspecto de las fichas
+                </label>
+                <select
+                    class="controles__control"
+                    id="tema"
+                >
+                    <option
+                        value="clasico"
+                        selected
+                    >
+                        Clásico
+                    </option>
+                    <option value="pastel">
+                        Pastel
+                    </option>
+                    <option value="contraste">
+                        Contraste
+                    </option>
+                </select>
+            </div>
+            <button
+                class="controles__boton"
+                id="nueva-partida"
+                type="button"
+            >
+                Nueva partida
+            </button>
+        </aside>
+        <section
+            class="juego"
+            aria-labelledby="juego-titulo"
+        >
+            <header class="juego__cabecera">
+                <div>
+                    <h2
+                        class="juego__titulo"
+                        id="juego-titulo"
+                    >
+                        Partida
+                    </h2>
+                    <p
+                        class="juego__estado"
+                        id="estado"
+                        aria-live="polite"
+                    >
+                        Partida en curso
+                    </p>
+                </div>
+                <div class="movimientos">
+                    <span class="movimientos__etiqueta">
+                        Movimientos
+                    </span>
+                    <strong
+                        class="movimientos__numero"
+                        id="movimientos"
+                    >
+                        0
+                    </strong>
+                </div>
+            </header>
+            <div
+                class="tablero"
+                id="tablero"
+                role="grid"
+                aria-label="Tablero de juego"
+            ></div>
+            <p class="juego__instruccion">
+                Arrastra una ficha sobre otra para
+                intercambiarlas.
+            </p>
+        </section>
+    </main>
+    <footer class="pie">
+        <p class="pie__texto">
+            Juego de fichas · HTML, CSS y JavaScript
+        </p>
+    </footer>
+</body>
+</html>
